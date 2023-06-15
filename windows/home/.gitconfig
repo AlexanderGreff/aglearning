@@ -1,0 +1,7 @@
+[core]
+	editor = \"C:\\Users\\alexa\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\code\" --wait
+[gui]
+	recentrepo = C:/Users/alexa/Documents/vscode/aglearning
+[user]
+	name = Alexander Greff
+	email = alexander@greffsite.com
