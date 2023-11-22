@@ -16,6 +16,8 @@ add_library(FirstProject  FirstProject.cpp)
 
 target_include_directories(FirstProject  PUBLIC include)
 
+add_executable(first main.cpp)
+target_link_libraries(first PUBLIC FirstProject)
 
 enable_testing()
 
