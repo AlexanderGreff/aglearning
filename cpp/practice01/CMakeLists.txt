@@ -12,12 +12,13 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 
-# add_library(FirstProject  FirstProject.cpp)
+add_library(MyFirstLib  myfunc.cpp MyComplex.cpp)
 
-# target_include_directories(FirstProject  PUBLIC include)
+# target_include_directories(MyFirstLib  PUBLIC include )
 
-add_executable(myprint main.cpp myfunc.cpp)
-target_link_libraries(myprint PUBLIC )
+add_executable(myprint main.cpp myfunc.cpp MyComplex.cpp)
+add_executable(myprint1 main1.cpp)
+target_link_libraries(myprint1 PUBLIC MyFirstLib)
 
 # enable_testing()
 

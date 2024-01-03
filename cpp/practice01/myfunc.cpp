@@ -1,4 +1,5 @@
 #include "myfunc.hpp"
+#include "MyComplex.hpp"
 
 
 // extern "C"
@@ -10,6 +11,7 @@ int foo(int a,char b)
 // extern "C"
 int foo(int a)
 {
+    MyComplex comp1(5,6.1);
     return a+15;
 }
 
