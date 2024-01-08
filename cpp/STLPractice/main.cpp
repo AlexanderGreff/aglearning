@@ -44,19 +44,18 @@ int listFn()
     for (auto it = myCollection.begin(); it != myCollection.end(); it++)
     {
         std::cout <<"myCollection[" << i++ << "]=" << *it << std::endl;
-        
     }
+
     i = 0;
     for (auto it = myCollection.begin(); it != myCollection.end(); it++)
     {
-        (*it)++; // Increment the value iterator is pointing to
-        std::cout <<"myCollection1[" << i++ << "]=" << *it << std::endl;
+        (*it) += 10; // Increment the value iterator is pointing to
     }
+    
     i = 0;
     for (auto it = myCollection.begin(); it != myCollection.end(); it++)
     {
-        std::cout <<"myCollection2[" << i++ << "]=" << *it << std::endl;
-        
+        std::cout <<"myCollection[" << i++ << "]=" << *it << std::endl;
     }
     return 0;
 }
