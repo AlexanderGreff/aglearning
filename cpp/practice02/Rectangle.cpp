@@ -1,5 +1,7 @@
 #include "Rectangle.hpp"
 
+namespace ajg
+{
 
 Rectangle::Rectangle()
 {
@@ -43,4 +45,6 @@ std::ostream &operator<<(std::ostream &out, const Rectangle &rectangle)
     out << "Perimeter=" << rectangle.calc_perim() << " ";
     out << "}";   
     return out;
+}
+
 }

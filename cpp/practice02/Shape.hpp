@@ -1,6 +1,10 @@
 #pragma once
 #include <ostream>
 
+namespace ajg
+{
+
+
 class Shape
 {
     public:
@@ -14,3 +18,5 @@ class Shape
 
     
 };
+
+}

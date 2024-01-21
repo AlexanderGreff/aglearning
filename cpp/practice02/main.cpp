@@ -8,6 +8,7 @@
 
 int main(int argc, const char* argv[])
 {
+    std::vector<ajg::Shape*> myvec;
 
     std::cout << " argc=" << argc << "\n";
     for (int i = 0; i < argc; i++)
@@ -16,21 +17,20 @@ int main(int argc, const char* argv[])
     }
     std::cout << std::endl;
 
-    Circle c1;
-    Circle c2(5);
-    Circle c3(c2);
+    ajg::Circle c1;
+    ajg::Circle c2(5);
+    ajg::Circle c3(c2);
     std::cout << "c1=" << c1 <<"\n";
     std::cout << "c2=" << c2 <<"\n";
     std::cout << "c3=" << c3 <<"\n";
-    // std::cout << sizeof(Circle) << "\n";
+    std::cout << sizeof(ajg::Circle) << "\n";
     
-    std::vector<Shape*> myvec;
-    myvec.push_back(new Circle(10));
-    myvec.push_back(new Circle(15));
-    myvec.push_back(new Circle());
-    myvec.push_back(new Rectangle());
-    myvec.push_back(new Rectangle(3,5));
-    myvec.push_back(new Rectangle(2,7));
+    myvec.push_back(new ajg::Circle(10));
+    myvec.push_back(new ajg::Circle(15));
+    myvec.push_back(new ajg::Circle());
+    myvec.push_back(new ajg::Rectangle());
+    myvec.push_back(new ajg::Rectangle(3,5));
+    myvec.push_back(new ajg::Rectangle(2,7));
 
     for(auto s : myvec)
     {

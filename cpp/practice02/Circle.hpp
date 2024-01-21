@@ -1,6 +1,10 @@
 #pragma once
 #include <iostream>
 #include "Shape.hpp"
+
+namespace ajg
+{
+
 class Circle : public Shape
 {
 public:
@@ -20,3 +24,4 @@ private:
     // int z;
 };
 
+}

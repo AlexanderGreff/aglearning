@@ -1,5 +1,7 @@
 #include "Circle.hpp"
 #include <math.h>
+namespace ajg
+{
 
 Circle::Circle()
 {
@@ -36,4 +38,6 @@ std::ostream &operator<<(std::ostream &out, const Circle &circle)
     out << "Perimeter=" << circle.calc_perim() << " ";
     out << "}";   
     return out;
+}
+
 }

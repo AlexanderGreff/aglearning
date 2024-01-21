@@ -1,6 +1,11 @@
 #pragma once
 #include <iostream>
 #include "Shape.hpp"
+
+namespace ajg
+{
+
+
 class Rectangle : public Shape
 {
 public:
@@ -21,3 +26,5 @@ private:
     // short c2;
     // int z;
 };
+
+}
