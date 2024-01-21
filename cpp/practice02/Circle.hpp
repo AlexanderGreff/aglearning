@@ -12,6 +12,7 @@ public:
     // Circle() = default;
     Circle(double radius);
     double get_radius() const;
+    double& get_radius();
     friend std::ostream& operator<< (std::ostream& out, const Circle& circle);
     virtual double calc_area() const override;
     virtual double calc_perim() const override;

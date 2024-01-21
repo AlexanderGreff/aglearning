@@ -23,6 +23,10 @@ int main(int argc, const char* argv[])
     std::cout << "c1=" << c1 <<"\n";
     std::cout << "c2=" << c2 <<"\n";
     std::cout << "c3=" << c3 <<"\n";
+    c3.get_radius() = 10;
+    double& alexander(c3.get_radius());
+    alexander = 15;
+    std::cout << "c3=" << c3 <<"\n";
     std::cout << sizeof(ajg::Circle) << "\n";
     
     myvec.push_back(new ajg::Circle(10));

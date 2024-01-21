@@ -19,6 +19,11 @@ double Circle::get_radius() const
     return radius_;
 }
 
+double& Circle::get_radius()
+{
+    return radius_;
+}
+
 double Circle::calc_area() const
 {
     return radius_ * radius_;
@@ -39,5 +44,7 @@ std::ostream &operator<<(std::ostream &out, const Circle &circle)
     out << "}";   
     return out;
 }
+
+
 
 }
