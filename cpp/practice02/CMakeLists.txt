@@ -16,7 +16,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 # target_include_directories(Sample  PUBLIC include)
 
-add_executable(practice02 main.cpp Circle.cpp)
+add_executable(practice02 main.cpp Circle.cpp Shape.cpp Rectangle.cpp)
 # target_link_libraries(practice02 PUBLIC Sample)
 
 enable_testing()

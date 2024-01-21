@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
-class Circle
+#include "Shape.hpp"
+class Circle : public Shape
 {
 public:
     Circle();
@@ -8,8 +9,8 @@ public:
     Circle(double radius);
     double get_radius() const;
     friend std::ostream& operator<< (std::ostream& out, const Circle& circle);
-    double calc_area() const;
-    double calc_perim() const;
+    virtual double calc_area() const override;
+    virtual double calc_perim() const override;
 
 private:
     double radius_;
