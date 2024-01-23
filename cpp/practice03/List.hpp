@@ -19,10 +19,12 @@ private:
 
 public:
     List();
+    ~List();
     void insertAtFront(const T &);
     T& indexRecursive(unsigned index);
     T& indexIterative(unsigned index);
     void print(std::ostream& out);
+    void remove(ListNode* head);
 private:
     ListNode *head_;
     // ownership is important, the ListNode does not need to handle any memory here; the List does.

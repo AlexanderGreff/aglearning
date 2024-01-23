@@ -9,6 +9,11 @@ List<T>::List()
 }
 
 template <class T>
+List<T>::~List()
+{
+    remove(head_);
+}
+template <class T>
 void List<T>::insertAtFront(const T &t)
 {
     ListNode* tmp = new ListNode(t);
@@ -36,6 +41,19 @@ typename List<T>::ListNode*& List<T>::_index(unsigned index, ListNode*& head)
     return _index(--index, head->next_);
     
 }
+
+template <class T>
+void List<T>::remove(ListNode* head)
+{
+    if (head->next_ != nullptr)
+    {
+        remove(head->next_);
+    }
+    std::cout << "deleting " << head->data_ << "\n";
+    delete head;
+    
+}
+
 
 template <class T>
 T& List<T>::indexIterative(unsigned index)
