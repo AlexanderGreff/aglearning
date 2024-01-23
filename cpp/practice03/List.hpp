@@ -1,63 +1,32 @@
 #pragma once
-// Implementation file
+
+// Declaration file
+
 namespace ajg
 {
-template <class T>
-List<T>::List()
-    : head_(nullptr)
-{
-}
 
 template <class T>
-void List<T>::insertAtFront(const T &t)
+class List
 {
-    ListNode* tmp = new ListNode(t);
-
-    tmp->next_ = this->head_;
-
-    this->head_ = tmp;
-}
-
-template <class T>
-T& List<T>::indexRecursive(unsigned index)
-{
-    ListNode*& result = _index(index, head_);
-    return result->data_;
-}
-
-template <class T>
-typename List<T>::ListNode*& List<T>::_index(unsigned index, ListNode*& head)
-{
-    if (index == 0)
+private:
+    struct ListNode
     {
-        return head;
-    }
+        T data_;
+        ListNode *next_;
+        ListNode(const T &data) : data_(data), next_(NULL) {}
+    };
+    ListNode*& _index(unsigned index, ListNode*& head);
 
-    return _index(--index, head->next_);
-    
+public:
+    List();
+    void insertAtFront(const T &);
+    T& indexRecursive(unsigned index);
+    T& indexIterative(unsigned index);
+    void print(std::ostream& out);
+private:
+    ListNode *head_;
+    // ownership is important, the ListNode does not need to handle any memory here; the List does.
+};
 }
 
-template <class T>
-T& List<T>::indexIterative(unsigned index)
-{
-    ListNode* tmp = head_;
-    for(int i = 0; i < index; i++)
-    {
-        tmp = tmp->next_;
-    }
-    return tmp->data_;
-}
-template <class T>
-void List<T>::print(std::ostream& out)
-{
-    ListNode* tmp = head_;
-    for(int i = 0; tmp!=nullptr; i++)
-    {
-        out << tmp->data_ << " ";
-        tmp = tmp->next_;
-    }
-    out << "\n";
-}
-
-
-}
+#include "List.ipp"
