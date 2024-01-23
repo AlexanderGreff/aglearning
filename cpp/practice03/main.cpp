@@ -12,7 +12,7 @@ int main(int argc, char const *argv[])
     intlist.insertAtFront(5);
     intlist.insertAtFront(7);
     intlist.insertAtFront(1);
-    int result = intlist.index(2);
+    int result = intlist.indexRecursive(2);
     std::cout << result << "\n";
 
 

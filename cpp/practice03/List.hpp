@@ -19,7 +19,7 @@ void List<T>::insertAtFront(const T &t)
 }
 
 template <class T>
-T& List<T>::index(unsigned index)
+T& List<T>::indexRecursive(unsigned index)
 {
     ListNode*& result = _index(index, head_);
     return result->data_;

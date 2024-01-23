@@ -20,7 +20,7 @@ private:
 public:
     List();
     void insertAtFront(const T &);
-    T& index(unsigned index);
+    T& indexRecursive(unsigned index);
 
 private:
     ListNode *head_;
