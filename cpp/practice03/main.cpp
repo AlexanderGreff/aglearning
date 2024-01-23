@@ -5,9 +5,10 @@
 #include <string>
 #include "List.h"
 
+
 int main(int argc, char const *argv[])
 {
-    List<int> intlist;
+    ajg::List<int> intlist;
     intlist.insertAtFront(5);
     intlist.insertAtFront(7);
     intlist.insertAtFront(1);

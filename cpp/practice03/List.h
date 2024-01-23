@@ -2,6 +2,9 @@
 
 // Declaration file
 
+namespace ajg
+{
+
 template <class T>
 class List
 {
@@ -23,5 +26,6 @@ private:
     ListNode *head_;
     // ownership is important, the ListNode does not need to handle any memory here; the List does.
 };
+}
 
 #include "List.hpp"

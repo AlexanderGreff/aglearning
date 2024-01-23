@@ -1,6 +1,7 @@
 #pragma once
 // Implementation file
-
+namespace ajg
+{
 template <class T>
 List<T>::List()
     : head_(nullptr)
@@ -33,4 +34,6 @@ typename List<T>::ListNode*& List<T>::_index(unsigned index, ListNode*& head)
 
     return _index(--index, head->next_);
     
+}
+
 }
