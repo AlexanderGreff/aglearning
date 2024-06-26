@@ -1,0 +1,6 @@
+class Ticket
+{
+    private:
+
+    public:
+}
