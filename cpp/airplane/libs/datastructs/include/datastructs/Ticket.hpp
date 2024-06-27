@@ -1,9 +1,12 @@
 #pragma once
 
-#include "passenger.hpp"
+#include <string>
 #include <vector>
 class Ticket
 {
+    public:
+        using collection = std::vector<Ticket>; //type definition
+
     private:
         std::string startLocation_;
         std::string endLocation_;
@@ -33,4 +36,14 @@ class Ticket
         int getFlightNumber() const { return flightNumber_; }
         int getSeatNumber() const { return seatNumber_; }
         int getFlightTime() const { return flightTime_; }
+
+        void setStartLocation(std::string startLocation) { startLocation_ = startLocation; }
+        void setEndLocation(std::string endLocation) { endLocation_ = endLocation; }
+        void setSeatClass(std::string seatClass) { seatClass_ = seatClass; }
+        void setSeatLetter(char seatLetter) { seatLetter_ = seatLetter; }
+        void setGateLetter(char gateLetter) { gateLetter_ = gateLetter; }
+        void setGateNumber(int gateNumber) { gateNumber_ = gateNumber; }
+        void setFlightNumber(int flightNumber) { flightNumber_ = flightNumber; }
+        void setSeatNumber(int seatNumber) { seatNumber_ = seatNumber; }
+        void setFlightTime(int flightTime) { flightTime_ = flightTime; }
 };

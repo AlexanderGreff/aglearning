@@ -1,6 +1,0 @@
-class Ticket
-{
-    private:
-
-    public:
-}
