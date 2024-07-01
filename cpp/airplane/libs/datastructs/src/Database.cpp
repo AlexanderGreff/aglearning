@@ -1,6 +1,6 @@
 #include <datastructs/Database.hpp>
 
-DataBase::DataBase()
+Database::Database()
 : 
 passengers_(
 	{
@@ -19,11 +19,30 @@ trips_(
 	}
 		),
 		
- tickets_(
+tickets_(
 	{
 		std::make_shared<Ticket>( "Paris", "London",  1),
 		std::make_shared<Ticket>( "Prague", "Atlanta", 2),
 		std::make_shared<Ticket>( "Atlanta", "Chicago", 2)
 	}
+		),
+usernameList_(
+	{
+		"John",
+		"Jane",
+		"Mary",
+		"Mark",
+		"Wade"
+	}
+		),
+passwordList_(
+	{
+		"password1",
+		"password2",
+		"password3",
+		"password4",
+		"password5"
+	}
 		)
+
 {}

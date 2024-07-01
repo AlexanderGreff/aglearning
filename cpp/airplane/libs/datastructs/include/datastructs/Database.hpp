@@ -4,33 +4,34 @@
 #include <memory>
 #include "Passenger.hpp"
 
-class DataBase
+class Database
 {
     private:
-        DataBase(); 
+        Database(); 
         // = default;
         
 
     public:
         std::deque <std::shared_ptr<Passenger> > passengers_;
         std::deque <std::shared_ptr<Trip> > trips_;
-        std::deque <std::shared_ptr<Ticket> > tickets_;
-    
+        std::deque<std::shared_ptr<Ticket>> tickets_;
+        std::vector<std::string> usernameList_;
+        std::vector<std::string> passwordList_;
+
     public:
-        DataBase(const DataBase&) = delete;
+        Database(const Database&) = delete;
 
 //pointer style singleton generator
-        // static DataBase* instance()
+        // static Database* instance()
         // {
-        //     static DataBase* instance = new DataBase;
+        //     static Database* instance = new Database;
         //     return instance;
         // }
 
 //reference style singleton generator
-        static DataBase* instance()
+        static Database* instance()
         {
-            static DataBase instance;
+            static Database instance;
             return &instance;
         }
 };
-

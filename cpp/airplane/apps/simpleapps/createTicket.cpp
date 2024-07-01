@@ -1,14 +1,11 @@
-#include <datastructs/Database.hpp>
-
+#include <datastructs/Console.hpp>
 
 
 
 int main()
 {
-    DataBase* db = DataBase::instance();
-
+    Console console;
+    int result = console.mainMenu();
     
-
-    return 0;
+    return result;
 }
-
