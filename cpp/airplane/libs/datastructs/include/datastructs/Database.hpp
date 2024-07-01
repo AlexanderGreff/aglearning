@@ -3,6 +3,7 @@
 #include <deque>
 #include <memory>
 #include "Passenger.hpp"
+#include "UserInfo.hpp"
 
 class Database
 {
@@ -15,8 +16,7 @@ class Database
         std::deque <std::shared_ptr<Passenger> > passengers_;
         std::deque <std::shared_ptr<Trip> > trips_;
         std::deque<std::shared_ptr<Ticket>> tickets_;
-        std::vector<std::string> usernameList_;
-        std::vector<std::string> passwordList_;
+        std::vector<UserInfo> users_;
 
     public:
         Database(const Database&) = delete;

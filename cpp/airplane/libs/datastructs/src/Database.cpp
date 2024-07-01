@@ -26,23 +26,15 @@ tickets_(
 		std::make_shared<Ticket>( "Atlanta", "Chicago", 2)
 	}
 		),
-usernameList_(
+users_(
 	{
-		"John",
-		"Jane",
-		"Mary",
-		"Mark",
-		"Wade"
+		{"John","pass1"},
+		{"Jane","pass2"},
+		{"Mary","pass3"},
+		{"Mark","pass4"},
+		{"Wade","pass5"} 
 	}
-		),
-passwordList_(
-	{
-		"password1",
-		"password2",
-		"password3",
-		"password4",
-		"password5"
-	}
-		)
+)
 
-{}
+{
+}

@@ -4,5 +4,5 @@
 void Service::login(std::string username, std::string password)
 {
     Database* db = Database::instance();
-
+    
 }
