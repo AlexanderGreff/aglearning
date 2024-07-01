@@ -5,5 +5,5 @@
 class Service
 {
     public: 
-    void login(std::string username, std::string password);
+    bool login(std::string username, std::string password);
 };
