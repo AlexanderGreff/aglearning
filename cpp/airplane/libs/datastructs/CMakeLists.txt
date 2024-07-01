@@ -1,5 +1,11 @@
-add_library(datastructs INTERFACE)
-# add_target_sources(datastructs INTERFACE)
-target_include_directories(datastructs INTERFACE include)
+add_library(datastructs STATIC)
 
-# add_target_link_libraries(datastructs INTERFACE datastructs)
+target_include_directories(datastructs PUBLIC include)
+
+target_sources(datastructs PRIVATE 
+    src/Database.cpp
+    src/Console.cpp
+    src/Service.cpp
+    )
+    
+# target_link_libraries(datastructs STATIC datastructs)

@@ -25,6 +25,4 @@ class Trip
         void addTicket(Ticket ticket) { tickets_.push_back(ticket); }
         Ticket getTicket(int index) { return tickets_[index]; }
         Ticket getTicket(int index) const { return tickets_[index]; }
-
-
 };
