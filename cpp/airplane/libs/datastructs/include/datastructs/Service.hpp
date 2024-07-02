@@ -5,5 +5,12 @@
 class Service
 {
     public: 
-    bool login(std::string username, std::string password);
+    enum class LoginResult
+    {
+        Success,
+        Failure,
+        Exit
+    };
+    LoginResult login(std::string username, std::string password);
+
 };
