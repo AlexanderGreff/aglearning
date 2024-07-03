@@ -1,8 +1,6 @@
 #pragma once
 
-
 #include "Service.hpp"
-#include "Database.hpp"
 class Console
 {
     private: 
@@ -10,5 +8,5 @@ class Console
     public:
         int mainMenu();
         using LoginResult = Service::LoginResult;
-        Database* login();
+        int64_t login();
 };

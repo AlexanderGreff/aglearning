@@ -11,6 +11,9 @@ class Passenger
 
 
     public:
+        using Ptr = std::shared_ptr<Passenger>;
+        using Collection = std::vector<Passenger::Ptr>;
+        
         Passenger(std::string name, int age) : name_(name), age_(age) {}
         std::string getName() { return name_; }
         int getAge() {return age_; }

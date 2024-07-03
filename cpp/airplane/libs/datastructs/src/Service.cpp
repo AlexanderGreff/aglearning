@@ -2,14 +2,14 @@
 #include <datastructs/Database.hpp>
 #include <algorithm>
 
-Service::LoginResult Service::login(std::string username, std::string password)
+Service::LoginData  Service::login(std::string username, std::string password)
 {
     Database* db = Database::instance();
-    
-    std::vector<UserInfo>::iterator res = std::find(db->users_.begin(),db->users_.end(), UserInfo{username, password});
+    UserInfo::Ptr myUser = std::make_shared<UserInfo>(username, password);
+    UserInfo::Collection::iterator res = std::find(db->users_.begin(),db->users_.end(), myUser);
     if (res != db->users_.end())
     {
-        return LoginResult::Success;
+        return {LoginResult::Success, *res};
     }
-    return LoginResult::Failure;
+    return {LoginResult::Failure, UserInfo::Ptr()};
 }

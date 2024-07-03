@@ -15,6 +15,9 @@ class Ticket
         // Flight myFlight_;
     
     public:
+        using Ptr = std::shared_ptr<Ticket>;
+        using Collection = std::vector<Ticket::Ptr>;
+
         Ticket(std::string seatClass, std::string seatLetter,int price) 
         : seatClass_(seatClass), seatLetter_(seatLetter), price_(price) {}
 

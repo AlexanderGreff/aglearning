@@ -15,6 +15,9 @@ class Trip
         int endDate_;
 
     public:
+        using Ptr = std::shared_ptr<Trip>;
+        using Collection = std::vector<Trip::Ptr>;
+
         Trip(std::string startLocation, std::string endLocation, int startDate, int endDate)
         : startLocation_(startLocation), endLocation_(endLocation), startDate_(startDate), endDate_(endDate) {}
         Ticket::collection& getTickets() { return tickets_; }

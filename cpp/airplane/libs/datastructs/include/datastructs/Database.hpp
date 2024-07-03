@@ -13,10 +13,10 @@ class Database
         
 
     public:
-        std::deque <std::shared_ptr<Passenger> > passengers_;
-        std::deque <std::shared_ptr<Trip> > trips_;
-        std::deque<std::shared_ptr<Ticket>> tickets_;
-        std::vector<UserInfo> users_;
+        Passenger::Collection passengers_;
+        Trip::Collection trips_;
+        Ticket::Collection tickets_;
+        UserInfo::Collection users_;
 
     public:
         Database(const Database&) = delete;

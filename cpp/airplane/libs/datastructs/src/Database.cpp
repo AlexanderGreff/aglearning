@@ -28,11 +28,11 @@ tickets_(
 		),
 users_(
 	{
-		{"John","pass1"},
-		{"Jane","pass2"},
-		{"Mary","pass3"},
-		{"Mark","pass4"},
-		{"Wade","pass5"} 
+		std::make_shared<UserInfo>("John","pass1"),
+		std::make_shared<UserInfo>("Jane","pass2"),
+		std::make_shared<UserInfo>("Mary","pass3"),
+		std::make_shared<UserInfo>("Mark","pass4"),
+		std::make_shared<UserInfo>("Wade","pass5") 
 	}
 )
 
