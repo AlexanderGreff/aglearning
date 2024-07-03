@@ -12,7 +12,7 @@ class Ticket
         std::string seatClass_;
         std::string seatLetter_;
         int price_;
-        // Flight myFlight_;
+        Flight* myFlight_;
     
     public:
         using Ptr = std::shared_ptr<Ticket>;

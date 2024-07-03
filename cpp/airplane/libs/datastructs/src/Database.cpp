@@ -2,16 +2,6 @@
 
 Database::Database()
 : 
-passengers_(
-	{
-		std::make_shared<Passenger>("John", 23),
-        std::make_shared<Passenger>("Jane", 24),
-        std::make_shared<Passenger>("Mary", 22),
-        std::make_shared<Passenger>("Mark", 32),
-        std::make_shared<Passenger>("Wade", 33)
-	}
-		), 
-
 trips_(
 	{
 			std::make_shared<Trip>("Paris", "London", 10, 20),

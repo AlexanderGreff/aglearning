@@ -13,3 +13,15 @@ Service::LoginData  Service::login(std::string username, std::string password)
     }
     return {LoginResult::Failure, UserInfo::Ptr()};
 }
+
+UserInfo::Ptr Service::findUserInfo(const int64_t loginCheck)
+{
+    Database* db = Database::instance();
+    UserInfo::Collection::iterator res = std::find_if(db->users_.begin(),db->users_.end(),
+    [loginCheck](UserInfo::Ptr usr) { return usr->token_->getasint64() == loginCheck;});
+    if (res != db->users_.end())
+    {
+        return *res;
+    }
+    return UserInfo::Ptr();
+}

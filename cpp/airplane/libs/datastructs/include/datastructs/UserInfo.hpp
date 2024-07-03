@@ -1,7 +1,8 @@
 #pragma once
 
-#include <vector>
 #include "UserToken.hpp"
+#include "Trip.hpp"
+#include <vector>
 #include <string>
 class UserInfo
 {
@@ -9,6 +10,11 @@ class UserInfo
         std::string username_;
         std::string password_;
         UserToken::Ptr token_;
+        Trip::collection trips_;
+        // std::string name_;
+        // int age_;
+
+
     
     public:
         using Ptr = std::shared_ptr<UserInfo>;

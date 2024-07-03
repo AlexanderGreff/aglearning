@@ -12,7 +12,9 @@ class Service
         Failure,
         Exit
     };
-    std::pair<Service::LoginResult, UserInfo::Ptr> login(std::string username, std::string password);
     using LoginData = std::pair<Service::LoginResult, UserInfo::Ptr>;
+
+    std::pair<Service::LoginResult, UserInfo::Ptr> login(std::string username, std::string password);
+    UserInfo::Ptr findUserInfo(const int64_t loginCheck);
 
 };

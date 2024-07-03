@@ -2,7 +2,6 @@
 
 #include <deque>
 #include <memory>
-#include "Passenger.hpp"
 #include "UserInfo.hpp"
 
 class Database
@@ -13,7 +12,6 @@ class Database
         
 
     public:
-        Passenger::Collection passengers_;
         Trip::Collection trips_;
         Ticket::Collection tickets_;
         UserInfo::Collection users_;
