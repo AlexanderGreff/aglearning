@@ -81,7 +81,23 @@ int Console::userMenu(const int64_t loginCheck)
             break;
 
         case '3':
+        {
             std::cout << "Create Trip" << std::endl;
+            std::string startLocation;
+            std::string endLocation;
+            int startDate;
+            int endDate;
+            std::cout << "start location: " << std::endl;
+            std::getline(std::cin, startLocation);
+            std::cout << "end location: " << std::endl;
+            std::getline(std::cin, endLocation);
+            std::cout << "start date: " << std::endl;
+            std::cin >> startDate;
+            std::cout << "end date: " << std::endl;
+            std::cin >> endDate;
+            std::string result = service_.createTrip(loginCheck, startLocation, endLocation, startDate, endDate);
+            std::cout << result << std::endl;
+        }
             break;
 
         case '4':
