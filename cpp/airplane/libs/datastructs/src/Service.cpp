@@ -2,6 +2,7 @@
 #include <datastructs/Database.hpp>
 #include <algorithm>
 #include <sstream>
+#include <format>
 
 Service::LoginData  Service::login(std::string username, std::string password)
 {
@@ -47,7 +48,7 @@ std::string Service::getTrips(const int64_t loginCheck)
         std::stringstream out;
         for (Trip& trip : userInfo->trips_)
         {
-            out << trip.getStartLocation() << " to " << trip.getEndLocation() << std::endl;
+            out << trip.getName() << " from " << trip.getStartLocation() << " to " << trip.getEndLocation() << std::endl;
         }
         return out.str();
     }
@@ -67,6 +68,18 @@ std::string Service::deleteTrip(const int64_t loginCheck, std::string tripName)
             return "trip deleted";
         }
     }
-    return "user not found";
+    return "trip not found";
+}
+
+std::string Service::createTrip(const int64_t loginCheck, std::string startLocation, std::string endLocation, int startDate, int endDate)
+{
+    UserInfo::Ptr userInfo = findUserInfo(loginCheck);
+    std::string name = Trip::getName(startLocation, endLocation);
+    if (userInfo != nullptr)
+    {
+        userInfo->trips_.push_back(Trip(startLocation, endLocation, startDate, endDate));
+        return "trip created";
+    }
+    return "unable to create trip";
 }
 

@@ -4,8 +4,8 @@ Database::Database()
 : 
 trips_(
 	{
-		Trip("Trip1","Paris", "London", 10, 20),
-		Trip("Trip2","Prague", "Chicago", 11, 21)
+		Trip("Paris", "London", 10, 20),
+		Trip("Prague", "Chicago", 11, 21)
 	}
 		),
 		

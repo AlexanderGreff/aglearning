@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <format>
 #include "Ticket.hpp"
 class Trip
 {
@@ -8,7 +9,6 @@ class Trip
         using collection = std::vector<Trip>; //type definition
 
     private:
-        std::string name_;
         Ticket::Collection tickets_;
         std::string startLocation_;
         std::string endLocation_;
@@ -19,8 +19,8 @@ class Trip
         using Ptr = std::shared_ptr<Trip>;
         using Collection = std::vector<Trip>;
 
-        Trip(std::string name, std::string startLocation, std::string endLocation, int startDate, int endDate)
-        : name_(name),startLocation_(startLocation), endLocation_(endLocation), startDate_(startDate), endDate_(endDate) {}
+        Trip(std::string startLocation, std::string endLocation, int startDate, int endDate)
+        : startLocation_(startLocation), endLocation_(endLocation), startDate_(startDate), endDate_(endDate) {}
         Ticket::Collection& getTickets() { return tickets_; }
         const std::string& getStartLocation() const { return startLocation_; }
         const std::string& getEndLocation() const { return endLocation_; }
@@ -29,5 +29,7 @@ class Trip
         // void addTicket(Ticket ticket) { tickets_.push_back(ticket); }
         // Ticket getTicket(int index) { return tickets_[index]; }
         // Ticket getTicket(int index) const { return tickets_[index]; }
-        std::string getName() const { return name_; }
+        static std::string getName(const std::string& startLocation, const std::string& endLocation) { return std::format("{}-{}", startLocation, endLocation); }
+        std::string getName() const { return getName(startLocation_, endLocation_); }
+
 };
