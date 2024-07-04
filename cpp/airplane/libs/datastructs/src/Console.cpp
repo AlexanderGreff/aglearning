@@ -2,7 +2,6 @@
 #include <iostream>
 #include <ranges>
 
-
 void trim(std::string& in)
 {
     auto view
@@ -14,6 +13,17 @@ void trim(std::string& in)
 
         std::string result{view.begin(), view.end()};
         in = std::move(result);
+}
+
+void printUserMenu()
+{
+    std::cout << "User Menu" << std::endl;
+    std::cout << "1. Account Info" << std::endl;
+    std::cout << "2. Print Trips" << std::endl;
+    std::cout << "3. Create Trip" << std::endl;
+    std::cout << "4. Delete Trip" << std::endl;
+    std::cout << "5. Exit" << std::endl;
+    std::cout << "m. display User Menu" << std::endl;
 }
 
  int64_t Console::login()
@@ -47,44 +57,51 @@ void trim(std::string& in)
 int Console::userMenu(const int64_t loginCheck)
 {
     std::cout << "Welcome" << std::endl;
-    std::cout << "User Menu" << std::endl;
-    std::cout << "1. Account Info" << std::endl;
-    std::cout << "2. Print Trips" << std::endl;
-    std::cout << "3. Create Trip" << std::endl;
-    std::cout << "4. Delete Trip" << std::endl;
-    std::cout << "5. Exit" << std::endl;
-    std::string choice;
-    std::getline(std::cin, choice);
-    trim(choice); // clean up extra spaces
-    switch (choice[0])
+    printUserMenu();
+    bool done = false;
+    while (!done)
     {
-    case '1':
-        std::cout << "Account Info" << std::endl;
-        std::cout << service_.getUserInfo(loginCheck) << std::endl;
-        break;
-    case '2':
-        std::cout << "Print Trips" << std::endl;
-        std::cout << "your trips are: " << std::endl;
-        // for (Trip &trip : userInfo->trips_)
-        // {
-        //     std::cout << trip.getStartLocation() << " to " << trip.getEndLocation() << std::endl;
-        // }
-        break;
-    case '3':
-        std::cout << "Create Trip" << std::endl;
 
-        break;
+        std::string choice;
+        std::getline(std::cin, choice);
+        trim(choice); // clean up extra spaces
 
-    case '4':
-        std::cout << "Delete Trip" << std::endl;
-        break;
+        switch (choice[0])
+        {
+        case '1':
+            std::cout << "Account Info" << std::endl;
+            std::cout << service_.getUserInfo(loginCheck) << std::endl;
+            break;
+        case '2':
+            std::cout << "Print Trips" << std::endl;
+            std::cout << "your trips are: " << std::endl;
+            // for (Trip &trip : userInfo->trips_)
+            // {
+            //     std::cout << trip.getStartLocation() << " to " << trip.getEndLocation() << std::endl;
+            // }
+            break;
+        case '3':
+            std::cout << "Create Trip" << std::endl;
 
-    case '5':
-        std::cout << "Exit" << std::endl;
-        break;
+            break;
 
-    default:
-        break;
+        case '4':
+            std::cout << "Delete Trip" << std::endl;
+            break;
+
+        case '5':
+            std::cout << "Exit" << std::endl;
+            done = true;
+            break;
+        
+        case 'm':
+            printUserMenu();
+            break;
+
+
+        default:
+            break;
+        }
     }
     return 0;
 }
