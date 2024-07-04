@@ -15,16 +15,6 @@ void trim(std::string& in)
         in = std::move(result);
 }
 
-void printUserMenu()
-{
-    std::cout << "User Menu" << std::endl;
-    std::cout << "1. Account Info" << std::endl;
-    std::cout << "2. Print Trips" << std::endl;
-    std::cout << "3. Create Trip" << std::endl;
-    std::cout << "4. Delete Trip" << std::endl;
-    std::cout << "5. Exit" << std::endl;
-    std::cout << "m. display User Menu" << std::endl;
-}
 
  int64_t Console::login()
 {
@@ -54,6 +44,17 @@ void printUserMenu()
     return 0;
 }
 
+void printUserMenu()
+{
+    std::cout << "User Menu" << std::endl;
+    std::cout << "1. Account Info" << std::endl;
+    std::cout << "2. Print Trips" << std::endl;
+    std::cout << "3. Create Trip" << std::endl;
+    std::cout << "4. Delete Trip" << std::endl;
+    std::cout << "5. Exit" << std::endl;
+    std::cout << "m. display User Menu" << std::endl;
+}
+
 int Console::userMenu(const int64_t loginCheck)
 {
     std::cout << "Welcome" << std::endl;
@@ -72,21 +73,25 @@ int Console::userMenu(const int64_t loginCheck)
             std::cout << "Account Info" << std::endl;
             std::cout << service_.getUserInfo(loginCheck) << std::endl;
             break;
+
         case '2':
             std::cout << "Print Trips" << std::endl;
             std::cout << "your trips are: " << std::endl;
-            // for (Trip &trip : userInfo->trips_)
-            // {
-            //     std::cout << trip.getStartLocation() << " to " << trip.getEndLocation() << std::endl;
-            // }
+            std::cout <<service_.getTrips(loginCheck) << std::endl;
             break;
+
         case '3':
             std::cout << "Create Trip" << std::endl;
-
             break;
 
         case '4':
-            std::cout << "Delete Trip" << std::endl;
+        {
+            std::cout << "Delete Trip:" << std::endl;
+            std::string trip;
+            std::getline(std::cin, trip);
+            std::string result = service_.deleteTrip(loginCheck, trip);
+            std::cout << result << std::endl;
+        }
             break;
 
         case '5':
@@ -97,7 +102,6 @@ int Console::userMenu(const int64_t loginCheck)
         case 'm':
             printUserMenu();
             break;
-
 
         default:
             break;

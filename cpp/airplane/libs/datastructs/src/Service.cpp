@@ -45,27 +45,28 @@ std::string Service::getTrips(const int64_t loginCheck)
     if (userInfo != nullptr)
     {
         std::stringstream out;
-        for (Trip::Ptr trip : userInfo->trips_)
+        for (Trip& trip : userInfo->trips_)
         {
-            
-            out << trip->getStartLocation() << " to " << trip->getEndLocation() << std::endl;
+            out << trip.getStartLocation() << " to " << trip.getEndLocation() << std::endl;
         }
         return out.str();
     }
     return "user not found";
 }
 
-void Service::deleteTrip(const int64_t loginCheck, std::string tripName)
+std::string Service::deleteTrip(const int64_t loginCheck, std::string tripName)
 {
     UserInfo::Ptr userInfo = findUserInfo(loginCheck);
     if (userInfo != nullptr)
     {
         Trip::Collection::iterator iter = std::find_if(userInfo->trips_.begin(),userInfo->trips_.end(),
-        [tripName](Trip::Ptr trip) { return trip->getName() == tripName;});
+        [tripName](Trip trip) { return trip.getName() == tripName;});
         if (iter != userInfo->trips_.end())
         {
             userInfo->trips_.erase(iter);
+            return "trip deleted";
         }
     }
+    return "user not found";
 }
 
