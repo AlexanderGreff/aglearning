@@ -26,12 +26,14 @@ void trim(std::string& in)
         std::pair<Service::LoginResult, UserInfo::Ptr> result;
         std::cout << "please enter your username (leave empty to quit)" << std::endl;
         std::getline(std::cin, username);
+        std::cout << "username: " << username << std::endl;
         if (username.size() == 0)
         {
             return 0;
         }
         std::cout << "please enter your password" << std::endl;
         std::getline(std::cin, password);
+        std::cout << "password: " << password << std::endl;
         result = service_.login(username, password);
         if (result.first == Service::LoginResult::Success)
         {
@@ -44,36 +46,45 @@ void trim(std::string& in)
 
 int Console::userMenu(const int64_t loginCheck)
 {
-    UserInfo::Ptr userInfo = service_.findUserInfo(loginCheck);
-    if (userInfo != nullptr)
+    std::cout << "Welcome" << std::endl;
+    std::cout << "User Menu" << std::endl;
+    std::cout << "1. Account Info" << std::endl;
+    std::cout << "2. Print Trips" << std::endl;
+    std::cout << "3. Create Trip" << std::endl;
+    std::cout << "4. Delete Trip" << std::endl;
+    std::cout << "5. Exit" << std::endl;
+    std::string choice;
+    std::getline(std::cin, choice);
+    trim(choice); // clean up extra spaces
+    switch (choice[0])
     {
-        std::cout << "Welcome " << userInfo->username_ << std::endl;
-        std::cout << "User Menu" << std::endl;
-        std::cout << "1. Account Info" << std::endl;
-        std::cout << "2. Print Trips" << std::endl;
-        std::cout << "3. Create Trip" << std::endl;
-        std::cout << "4. Delete Trip" << std::endl;
-        std::cout << "5. Exit" << std::endl;
-        std::string choice;
-        std::getline(std::cin, choice);
-        trim(choice); //clean up extra spaces
-        switch (choice[0])
-        {
-        case '1':
-            std::cout << "Account Info" << std::endl;
-            break;
-        case '2':
-            std::cout << "Print Trips" << std::endl;
-            break;
-        case '3':
-            std::cout << "Create Trip" << std::endl;
-            break;
-        case '4':
-            std::cout << "Delete Trip" << std::endl;
-            break;
-        default:
-            break;
-        }
+    case '1':
+        std::cout << "Account Info" << std::endl;
+        std::cout << service_.getUserInfo(loginCheck) << std::endl;
+        break;
+    case '2':
+        std::cout << "Print Trips" << std::endl;
+        std::cout << "your trips are: " << std::endl;
+        // for (Trip &trip : userInfo->trips_)
+        // {
+        //     std::cout << trip.getStartLocation() << " to " << trip.getEndLocation() << std::endl;
+        // }
+        break;
+    case '3':
+        std::cout << "Create Trip" << std::endl;
+
+        break;
+
+    case '4':
+        std::cout << "Delete Trip" << std::endl;
+        break;
+
+    case '5':
+        std::cout << "Exit" << std::endl;
+        break;
+
+    default:
+        break;
     }
     return 0;
 }

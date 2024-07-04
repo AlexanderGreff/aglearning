@@ -6,15 +6,21 @@
 class Service
 {
     public: 
-    enum class LoginResult
-    {
-        Success,
-        Failure,
-        Exit
-    };
-    using LoginData = std::pair<Service::LoginResult, UserInfo::Ptr>;
+        enum class LoginResult
+        {
+            Success,
+            Failure,
+            Exit
+        };
+        using LoginData = std::pair<Service::LoginResult, UserInfo::Ptr>;
 
-    std::pair<Service::LoginResult, UserInfo::Ptr> login(std::string username, std::string password);
-    UserInfo::Ptr findUserInfo(const int64_t loginCheck);
+    public:
+        std::pair<Service::LoginResult, UserInfo::Ptr> login(std::string username, std::string password);
+        std::string getUserInfo(const int64_t loginCheck);
+        std::string getTrips(const int64_t loginCheck);
+        void deleteTrip(const int64_t loginCheck, std::string tripName);
+
+    private:
+        UserInfo::Ptr findUserInfo(const int64_t loginCheck);
 
 };
