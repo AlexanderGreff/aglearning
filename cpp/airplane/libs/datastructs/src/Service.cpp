@@ -83,3 +83,43 @@ std::string Service::createTrip(const int64_t loginCheck, std::string startLocat
     return "unable to create trip";
 }
 
+std::string Service::addFlights(const int64_t loginCheck, std::string startLocation, std::string endLocation, int startDate, int endDate)
+{
+    int ctr = 0;
+    int vectorCtr = 0;
+    UserInfo::Ptr userInfo = findUserInfo(loginCheck);
+    Database* db = Database::instance();
+    Flight::Collection::iterator curr = db->allFlights_.begin();
+    std::vector<Flight::Ptr> temp;
+    while (curr != db->allFlights_.end())
+    {
+        Flight::Collection::iterator iter = std::find_if(curr,db->allFlights_.end(),
+        [startLocation](Flight::Ptr flight) { return flight->getDepartureCity() == startLocation;});
+        if (iter != db->allFlights_.end())
+        {
+            std::cout << vectorCtr  << " "<< *(*iter) << std::endl;
+            vectorCtr++;
+            temp.push_back(*iter);
+            curr = ++iter;
+        }
+        else
+        {
+            curr = iter;
+        }
+    }
+    std::cout << "which number flight do you wish to add?" << std::endl;
+    // std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::string line;
+    std::getline(std::cin, line);
+    std::istringstream iss(line);
+    int i = -1;
+    iss >> i;
+    Flight::Ptr flight = temp[i];
+    if (ctr == 0)
+    {
+        userInfo->trips_.push_back(Trip(flight->getDepartureCity(), flight->getArrivalCity(), startDate, endDate));
+    }
+    userInfo->trips_.back().addTicket(Ticket("economy", "20A", 600), flight);
+    return "flight added";
+}
+

@@ -3,17 +3,17 @@
 #include "Service.hpp"
 class Console
 {
-    public:
+    public: //type definitions
         using LoginResult = Service::LoginResult;
 
-    public:
+    public: //member functions
         int mainMenu();
 
-    private:
+    private: //member functions
         int userMenu(const int64_t loginCheck);
         int64_t login();
         
 
-    private: 
+    private: //attributes
         Service service_;
 };

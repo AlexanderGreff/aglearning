@@ -6,18 +6,29 @@
 
 class Database
 {
-    private:
+    private: //constructors
         Database(); 
         // = default;
         
 
-    public:
-        Trip::Collection trips_;
-        Ticket::Collection tickets_;
+    public: //collections
+        Trip::Collection allTrips_;
+        Ticket::Collection allTickets_;
         UserInfo::Collection users_;
+        Flight::Collection allFlights_;
 
-    public:
+
+    public: //singleton property
         Database(const Database&) = delete;
+
+    public: //reference style singleton generator
+        static Database* instance()
+        {
+            static Database instance;
+            return &instance;
+        }
+
+// ------------------------------------------------------------------------------
 
 //pointer style singleton generator
         // static Database* instance()
@@ -26,10 +37,4 @@ class Database
         //     return instance;
         // }
 
-//reference style singleton generator
-        static Database* instance()
-        {
-            static Database instance;
-            return &instance;
-        }
 };

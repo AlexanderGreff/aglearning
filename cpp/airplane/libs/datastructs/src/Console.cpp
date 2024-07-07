@@ -1,6 +1,7 @@
 #include <datastructs/Console.hpp>
 #include <iostream>
 #include <ranges>
+#include <sstream>
 
 void trim(std::string& in)
 {
@@ -92,10 +93,16 @@ int Console::userMenu(const int64_t loginCheck)
             std::cout << "end location: " << std::endl;
             std::getline(std::cin, endLocation);
             std::cout << "start date: " << std::endl;
-            std::cin >> startDate;
+            std::string startDateString;
+            std::getline(std::cin, startDateString);
+            std::istringstream startDateStream(startDateString); 
+            startDateStream >> startDate; 
             std::cout << "end date: " << std::endl;
-            std::cin >> endDate;
-            std::string result = service_.createTrip(loginCheck, startLocation, endLocation, startDate, endDate);
+            std::string endDateString;
+            std::getline(std::cin, endDateString);
+            std::istringstream endDateStream(endDateString); 
+            endDateStream >> endDate;
+            std::string result = service_.addFlights(loginCheck, startLocation, endLocation, startDate, endDate);
             std::cout << result << std::endl;
         }
             break;
