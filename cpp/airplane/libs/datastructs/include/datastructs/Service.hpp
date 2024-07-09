@@ -19,10 +19,11 @@ class Service
         std::string getUserInfo(const int64_t loginCheck);
         std::string getTrips(const int64_t loginCheck);
         std::string deleteTrip(const int64_t loginCheck, std::string tripName);
-        std::string createTrip(const int64_t loginCheck, std::string startLocation, std::string endLocation, int startDate, int endDate);
         std::string addFlights(const int64_t loginCheck, std::string startLocation, std::string endLocation, int startDate, int endDate);
+        void selectTrips(const int64_t loginCheck);
+        void searchTrips(std::string startLocation, std::vector<Flight::Ptr>& temp);
 
-
+        
 
     private: //member function declarations
         UserInfo::Ptr findUserInfo(const int64_t loginCheck);

@@ -44,7 +44,13 @@ allFlights_
 		std::make_shared<Flight>("San Francisco", "Seattle", "G", 7, 16),
 		std::make_shared<Flight>("Seattle", "San Francisco", "H", 8, 17),
 		std::make_shared<Flight>("New York", "Boston", "I", 9, 18),
-		std::make_shared<Flight>("Boston", "New York", "J", 10, 19)
+		std::make_shared<Flight>("Boston", "New York", "J", 10, 19),
+		std::make_shared<Flight>("Boston", "Milan", "K", 11, 20),
+		std::make_shared<Flight>("Boston", "Berlin", "L", 12, 21),
+		std::make_shared<Flight>("Boston", "Madrid", "M", 13, 22),
+		std::make_shared<Flight>("Boston", "Paris", "N", 14, 23),
+		std::make_shared<Flight>("Boston", "London", "O", 15, 24),
+		std::make_shared<Flight>("Boston", "Chicago", "P", 16, 25)
 	}
 	)
 {
