@@ -11,6 +11,7 @@ int main()
   PNG result = rotate180(sample1);
   result.writeToFile("result.png");
   auto a = convertToVector(result);
+  auto s = a.size();
   PNG result1 = rotate180(result.width(),result.height(),a);
   result1.writeToFile("result1.png");
 

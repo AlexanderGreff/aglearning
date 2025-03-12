@@ -4,6 +4,25 @@
 using namespace cs225;
 
 
+PNG convertToPNG(unsigned width, unsigned height, const std::vector<HSLAPixel>& pix_list)
+{
+    PNG result(width,height);
+    // for (const HSLAPixel& currpixel : pix_list)
+    for (unsigned i = 0; i < pix_list.size(); i++)
+    {
+       const HSLAPixel& currpixel = pix_list[i];
+       unsigned x = i % width;
+       unsigned y =  i / width;
+    //    std::cout 
+    //    << "(x=" << x << ", "
+    //    << "y=" << y << ") " ;
+    // //    << "\n";
+       HSLAPixel& resultpixel = result.getPixel(x, y);
+       resultpixel = currpixel;
+    }
+    return result;
+}
+
 PNG rotate180(unsigned width, unsigned height, const std::vector<HSLAPixel>& pix_list)
 {
     PNG result(width,height);
@@ -11,14 +30,24 @@ PNG rotate180(unsigned width, unsigned height, const std::vector<HSLAPixel>& pix
     for (unsigned i = 0; i < pix_list.size(); i++)
     {
        const HSLAPixel& currpixel = pix_list[i];
-       auto x = i % width;
-       auto y =  i / width;
-       std::cout 
-       << "(x=" << x << ", "
-       << "y=" << y << ") " ;
-    //    << "\n";
+       unsigned x = width - (i % width) - 1;
+       unsigned y = height - (i / width) - 1;
        HSLAPixel& resultpixel = result.getPixel(x, y);
        resultpixel = currpixel;
+    }
+    return result;
+}
+
+std::vector<HSLAPixel> convertToVector1(const PNG& inputImg)
+{
+    std::vector<HSLAPixel> result;
+    for (unsigned y = 0; y < inputImg.height(); y++)
+    {
+        for (unsigned x = 0; x < inputImg.width(); x++)
+        {
+            const HSLAPixel& captureInput = inputImg.getPixel(x,y);
+            result.push_back(captureInput);
+        }
     }
     return result;
 }
@@ -26,12 +55,13 @@ PNG rotate180(unsigned width, unsigned height, const std::vector<HSLAPixel>& pix
 std::vector<HSLAPixel> convertToVector(const PNG& inputImg)
 {
     std::vector<HSLAPixel> result;
+    result.resize(inputImg.height() * inputImg.width());
     for (unsigned x = 0; x < inputImg.width(); x++)
     {
         for (unsigned y = 0; y < inputImg.height(); y++)
         {
             const HSLAPixel& captureInput = inputImg.getPixel(x,y);
-            result.push_back(captureInput);
+            result[x+ y*inputImg.width()] = captureInput;
         }
     }
     return result;
