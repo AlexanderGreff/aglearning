@@ -51,7 +51,7 @@ int listFn()
     {
         (*it) += 10; // Increment the value iterator is pointing to
     }
-    
+
     i = 0;
     for (auto it = myCollection.begin(); it != myCollection.end(); it++)
     {
@@ -60,9 +60,41 @@ int listFn()
     return 0;
 }
 
+template <typename MyType, typename ReturnType>
+ReturnType collectionFn(ReturnType value)
+{
+    MyType myCollection;
+    myCollection.push_back(13368);
+    myCollection.push_back(18854);
+    myCollection.push_back(222345);
+    
+    int i = 0;
+    for (auto it = myCollection.begin(); it != myCollection.end(); it++)
+    {
+        std::cout <<"myCollection[" << i++ << "]=" << *it << std::endl;
+    }
+
+    i = 0;
+    for (auto it = myCollection.begin(); it != myCollection.end(); it++)
+    {
+        (*it) += 10; // Increment the value iterator is pointing to
+    }
+
+    i = 0;
+    for (auto it = myCollection.begin(); it != myCollection.end(); it++)
+    {
+        std::cout <<"myCollection[" << i++ << "]=" << *it << std::endl;
+    }
+    return value;
+}
+
 int main(int argc, char const *argv[])
 {
     vectFn();
     listFn();
+    auto a = collectionFn< std::list<int>,double >(123.45);
+    auto b = collectionFn< std::vector<int>,int >(123.45);
+    std::cout <<"myvalue = " << a <<std::endl;
+    std::cout <<"myvalue = " << b <<std::endl;
     return 0;
 }
