@@ -1,0 +1,2 @@
+add_executable(createTicket createTicket.cpp)
+target_link_libraries(createTicket datastructs)

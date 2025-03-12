@@ -1,3 +1,6 @@
 {
-    "cmake.sourceDirectory": "/home/agreff/devel/agreff/aglearning/cpp/firstProject"
+    "cmake.sourceDirectory": "/home/agreff/gh/agreff/aglearning/cpp/SU24-vectorpractice",
+    "files.associations": {
+        "vector": "cpp"
+    }
 }

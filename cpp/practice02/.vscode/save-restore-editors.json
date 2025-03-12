@@ -1,0 +1,26 @@
+{
+  "tabs": [
+    {
+      "name": "2023-11-22",
+      "tabGroups": [
+        {
+          "files": [
+            "file:///home/agreff/devel/agreff/aglearning/cpp/firstProject/FirstProject_unittest.cpp",
+            "file:///home/agreff/devel/agreff/aglearning/cpp/firstProject/FirstProject.cpp",
+            "file:///home/agreff/devel/agreff/aglearning/cpp/firstProject/FirstProject.hpp",
+            "file:///home/agreff/devel/agreff/aglearning/cpp/firstProject/.gitignore"
+          ],
+          "viewColumn": 1
+        }
+      ],
+      "layout": {
+        "orientation": 1,
+        "groups": [
+          {
+            "size": 471
+          }
+        ]
+      }
+    }
+  ]
+}
