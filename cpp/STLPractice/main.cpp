@@ -5,6 +5,8 @@
 #include <memory>
 #include <string>
 #include <list>
+#include <forward_list>
+#include <deque>
 
 int vectFn()
 {
@@ -64,9 +66,9 @@ template <typename MyType, typename ReturnType>
 ReturnType collectionFn(ReturnType value)
 {
     MyType myCollection;
-    myCollection.push_back(13368);
-    myCollection.push_back(18854);
-    myCollection.push_back(222345);
+    myCollection.push_front(13368);
+    myCollection.push_front(18854);
+    myCollection.push_front(222345);
     
     int i = 0;
     for (auto it = myCollection.begin(); it != myCollection.end(); it++)
@@ -93,8 +95,10 @@ int main(int argc, char const *argv[])
     vectFn();
     listFn();
     auto a = collectionFn< std::list<int>,double >(123.45);
-    auto b = collectionFn< std::vector<int>,int >(123.45);
+    auto b = collectionFn< std::deque<int>,int >(123.45);
+    auto c = collectionFn< std::forward_list<int>,double >(123.45);
     std::cout <<"myvalue = " << a <<std::endl;
     std::cout <<"myvalue = " << b <<std::endl;
+    std::cout <<"myvalue = " << c <<std::endl;
     return 0;
 }
